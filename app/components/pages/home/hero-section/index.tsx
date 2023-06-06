@@ -1,10 +1,43 @@
+import Button from "@/app/components/Button";
 import TechsBadge from "@/app/components/Techs-badge";
-import { techs } from "@/app/components/Techs-badge/techs";
 import Image from "next/image";
 
-export default function HeroSection() {
+import { techs } from "@/app/components/Techs-badge/techs";
 
-  
+
+import { HiArrowNarrowRight } from 'react-icons/hi'
+import 
+{ 
+  TbBrandGithub, 
+  TbBrandLinkedin, 
+  TbBrandWhatsapp, 
+  TbBrandYoutube 
+} from 'react-icons/tb'
+
+
+export default function HeroSection() {
+  const MOCK_CONTACTS = [
+    {
+      id: 1,
+      url: 'https://github.com/dopeeycode',
+      icon: <TbBrandGithub />
+    },
+    {
+      id: 2,
+      url: 'https://www.linkedin.com/in/italo-patricio/',
+      icon: <TbBrandLinkedin />
+    },
+    {
+      id: 3,
+      url: 'https://www.youtube.com/',
+      icon: <TbBrandYoutube />
+    },
+    {
+      id: 4,
+      url: 'https://www.youtube.com/',
+      icon: <TbBrandWhatsapp />
+    }
+  ]  
 
   return (
     <section className="w-full h-[755px] bg-hero-image bg-cover bg-center bg-no-repeat flex flex-col
@@ -15,10 +48,10 @@ export default function HeroSection() {
           <h2 className="text-4xl font-medium mt-2">Gabriel Borges</h2>
 
           <p className="text-gray-400 my-6 text-sm lg:text-base">
-            Olá, meu nome é Gabriel Borges e sou um desenvolvedor front-end apaixonado por tecnologia.
-            Com mais de 2 anos de experiência. Meu objetivo é criar interfaces de usuário bonitas e 
+            Olá, meu nome é <b className="text-gray-50 font-medium">Gabriel Borges</b> e sou um desenvolvedor front-end apaixonado por tecnologia.
+            Com mais de <b className="text-gray-50 font-medium">2 anos de experiência.</b> Meu objetivo é criar interfaces de usuário bonitas e 
             funcionais, além de liderar equipes técnicas em projetos desafiadores. Estou sempre aberto 
-            a novas oportunidades e desafi
+            a novas oportunidades e desafios.
           </p>
 
           <div className="flex flex-wrap gap-x-2 gap-y-3 lg:max-w-[340px]">
@@ -26,8 +59,23 @@ export default function HeroSection() {
               <TechsBadge key={item.id} name={item.name} />
             ))}
           </div>
-          <div>
-            contato
+          <div className="mt-6 lg:mt-10 flex sm:items-center sm:gap-5 flex-col sm:flex-row">
+            <Button className="shadow-button" >
+              Entre em contato
+              <HiArrowNarrowRight size={18} />
+            </Button>
+            <div className="flex items-center text-2xl text-gray-600 h-20 gap-3">
+              {MOCK_CONTACTS.map(contact => (
+                <a 
+                  href={contact.url}
+                  key={contact.id}
+                  target="_blank"
+                  className="hover:text-gray-100 transition-colors"
+                  >
+                    {contact.icon}
+                </a>
+              ))}
+            </div>
           </div>
         </div>
         
