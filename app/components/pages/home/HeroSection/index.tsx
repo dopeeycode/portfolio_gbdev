@@ -1,8 +1,8 @@
 import Button from "@/app/components/Button";
-import TechsBadge from "@/app/components/Techs-badge";
+import TechsBadge from "@/app/components/TechsBadge";
 import Image from "next/image";
 
-import { techs } from "@/app/components/Techs-badge/techs";
+import { techs } from "@/app/components/TechsBadge/techs";
 
 
 import { HiArrowNarrowRight } from 'react-icons/hi'
